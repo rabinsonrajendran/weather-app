@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './weather/weather.component';
 
-import { AgmCoreModule } from '@agm/core';
+// import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -17,9 +17,9 @@ import { AgmCoreModule } from '@agm/core';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCFW8-jvIL3tcje30OAN2zTX9a3k0LW6uI'
-    })
+    // AgmCoreModule.forRoot({
+    //   apiKey: 'AIzaSyCFW8-jvIL3tcje30OAN2zTX9a3k0LW6uI'
+    // })
   ],
   providers: [],
   bootstrap: [AppComponent]
