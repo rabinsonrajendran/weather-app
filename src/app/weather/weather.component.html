@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="col-sm-12 text-center">
+
+            <div class="input-group md-5 mt-5 mb-2">
+                <input class="form-control" type="text" #userInput placeholder="Enter City Name">
+                <div class="input-group-append">
+                    <button class="btn btn-outlet-primary input-group-text" (click)="getCity(userInput.value)">Search</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div class="row">
+    <ng-container *ngFor="let tile of weatherData; let i = index">
+        <div class="col-md-3 p-2" *ngIf="showTile">
+            <div class="card" (click)="goToNew(tile.name)">
+                <div class="card-body">
+                  <h5 class="card-title">Weather of {{tile.name}}</h5>
+                  <div><span class="temp"><img src="http://openweathermap.org/img/wn/{{tile.weather[0].icon}}.png" alt="" /> {{ tile.main.temp | number: '1.0-0'}} &#176;F</span>
+                    <p class="text-uppercase font-italic">{{ tile.weather[0].description }}</p>
+                    </div>
+                  <div class="card-text">
+                      <table class="table table-light table-striped table-bordered table-sm">
+                        <tbody>
+                            <tr><td>Humidity </td><td>{{ tile.main.humidity }}%</td></tr>
+                            <tr><td>Pressure </td><td>{{ tile.main.pressure }} hpa</td></tr>
+                            <tr><td>Sunrise </td><td>{{ tile.sys.sunrise *1000 | date:'H:mm' }}</td></tr>
+                            <tr><td>Sunset </td><td>{{ tile.sys.sunset *1000 | date:'H:mm' }}</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+              </div>
+        </div>
+    </ng-container> 
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <agm-map [latitude]="lat" [longitude]="lon">
+            <agm-marker [latitude]="lat" [longitude]="lon"></agm-marker>
+        </agm-map> 
+    </div>
+</div>
